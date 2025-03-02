@@ -20,7 +20,7 @@ public class KafkaMessageListener
 			topicPartitions = {@TopicPartition(topic = "${kafka.testing.topic}", partitions = "${kafka.testing.topic.partitions}")})
 	public void consumeEvents(String message)
 	{
-		log.info("consumer consume the events {} ", message);
+		log.info("consumer consumed the events {} ", message);
 	}
 
 	// @KafkaListener(topics = "amlan-demo1",groupId = "amlan-group-new")
