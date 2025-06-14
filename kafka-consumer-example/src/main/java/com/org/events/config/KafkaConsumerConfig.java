@@ -27,7 +27,7 @@ public class KafkaConsumerConfig
 				StringDeserializer.class);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
 				JsonDeserializer.class);
-		props.put(JsonDeserializer.TRUSTED_PACKAGES, "com.javatechie.dto");
+		props.put(JsonDeserializer.TRUSTED_PACKAGES, "com.org.events.dto");
 		return props;
 	}
 
