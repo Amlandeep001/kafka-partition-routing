@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.log4j.Log4j2;
 
+// Read: https://docs.spring.io/spring-kafka/reference/kafka/receiving-messages/listener-annotation.html
+
 @Service
 @Log4j2
 public class KafkaMessageListener
@@ -17,7 +19,9 @@ public class KafkaMessageListener
 	}*/
 
 	@KafkaListener(topics = "${kafka.testing.topic}", groupId = "${spring.kafka.consumer.groupId}",
-			topicPartitions = {@TopicPartition(topic = "${kafka.testing.topic}", partitions = "${kafka.testing.topic.partitions}")})
+			topicPartitions = {@TopicPartition(topic = "${kafka.testing.topic}",
+					partitions = "${kafka.testing.topic.partitions}"/*,
+																	partitionOffsets = @PartitionOffset(partition = "${kafka.testing.topic.partitions}", initialOffset = "0")*/)})
 	public void consumeEvents(String message)
 	{
 		log.info("consumer consumed the events {} ", message);
